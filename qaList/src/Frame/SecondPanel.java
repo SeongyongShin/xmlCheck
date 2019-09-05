@@ -2,11 +2,15 @@ package Frame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import QA.xml.XmlSolve;
 
@@ -68,7 +72,11 @@ public class SecondPanel extends JPanel implements ActionListener{
 			ps.change(1);
 		}else if(msg.equals("결과 제출")) {
 			XmlSolve xs = new XmlSolve();
-			jt2.setText(xs.solve(jt1.getText()));
+			try {
+				jt2.setText(xs.solve(jt1.getText()));
+			} catch (ParserConfigurationException | SAXException | IOException e1) {
+				e1.printStackTrace();
+			}
 			jt2.setVisible(true);
 		}
 		
