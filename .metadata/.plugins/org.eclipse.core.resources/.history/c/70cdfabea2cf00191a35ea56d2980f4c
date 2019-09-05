@@ -1,0 +1,17 @@
+package QA.xml;
+
+import java.awt.Image;
+
+import Frame.MainFrame;
+
+public class main {
+
+	public static void main(String[] args) {
+		MainFrame mf = new MainFrame();
+		setTitle("QAÇØº¾½Ã´Ù.");
+		setSize(500,700);
+		setVisible(true);
+		mf.setImg();
+	}
+
+}

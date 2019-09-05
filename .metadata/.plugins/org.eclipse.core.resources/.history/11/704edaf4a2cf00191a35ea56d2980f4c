@@ -1,0 +1,24 @@
+package Frame;
+
+import java.awt.Container;
+import java.io.File;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
+public class FirstFrame extends JFrame{
+	
+	
+	
+	
+	
+	
+	public void setIconImage() {
+		File path = new File("src");
+		String path1 = "\\Frame\\resource\\";
+	    String s = path.getAbsolutePath() + path1 + "logo.png";
+		ImageIcon img = new ImageIcon(s);
+		this.setIconImage(img.getImage());
+	}
+
+}

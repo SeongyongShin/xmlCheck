@@ -1,0 +1,32 @@
+package QA.xml;
+
+import java.util.Stack;
+
+public class XmlSolve {
+	Stack<String> tag;
+	Stack<String> name;
+	Stack<String> field;
+	public String solve(String xml){
+		
+		
+		
+
+		if(xml.charAt(0) != '<' && xml.charAt(1) != '<')
+			for(int i=2;;i++) {
+				System.out.println(xml.charAt(i));
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(xml.charAt(i) == '<') {
+					xml.substring(0, i-1);
+					break;
+				}
+			}
+
+		return xml;
+	}
+	
+}

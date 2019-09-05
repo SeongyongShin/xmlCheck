@@ -1,15 +1,32 @@
 package QA.xml;
 
-import java.awt.Image;
+import Frame.FirstPanel;
+import Frame.PanelSet;
+import Frame.SecondPanel;
 
-import Frame.MainFrame;
 
 public class main {
-
+	
+	
 	public static void main(String[] args) {
-		System.out.println("hello");
-		MainFrame mf = new MainFrame();
-		mf.setImg();
+		firstSet();
+		
+	}
+
+	private static void firstSet() {
+		PanelSet ps;
+		FirstPanel fp;
+		SecondPanel sp;
+		ps = new PanelSet();
+		fp = new FirstPanel(ps);
+		sp = new SecondPanel(ps);
+		ps.setFp(fp);
+		ps.setSp(sp);
+		ps.add(ps.getFp());
+		ps.setTitle("QAÇØº¾½Ã´Ù.");
+		ps.setSize(600,700);
+		ps.setVisible(true);
+		ps.setIconImage();
 	}
 
 }

@@ -1,0 +1,62 @@
+package Frame;
+
+import java.awt.Component;
+import java.awt.Container;
+import java.io.File;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
+public class PanelSet extends JFrame{
+	
+	private FirstPanel fp = null;
+	private SecondPanel sp = null;
+	
+	public void setIconImage() {
+		File path = new File("src");
+		String path1 = "\\Frame\\resource\\";
+	    String s = path.getAbsolutePath() + path1 + "logo.png";
+		ImageIcon img = new ImageIcon(s);
+		this.setIconImage(img.getImage());
+	}
+	
+	public void change(int i) {
+		
+		
+		switch (i) {
+		case 1:
+			movePage(sp);
+			break;
+		case 2:
+			movePage(fp);
+			break;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + i);
+		}
+		
+	}
+	
+	public void movePage(Component panel) {
+		getContentPane().removeAll();
+		getContentPane().add(panel);
+		revalidate();
+		repaint();
+	}
+	
+	public FirstPanel getFp() {
+		return fp;
+	}
+
+	public void setFp(FirstPanel fp) {
+		this.fp = fp;
+	}
+
+	public SecondPanel getSp() {
+		return sp;
+	}
+
+	public void setSp(SecondPanel sp) {
+		this.sp = sp;
+	}
+	
+}

@@ -1,0 +1,45 @@
+package Frame;
+
+import java.awt.Container;
+import java.io.File;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
+public class PanelSet extends JFrame{
+	
+	private FirstPanel fp = null;
+	private SecondPanel sp = null;
+	
+	public void setIconImage() {
+		File path = new File("src");
+		String path1 = "\\Frame\\resource\\";
+	    String s = path.getAbsolutePath() + path1 + "logo.png";
+		ImageIcon img = new ImageIcon(s);
+		this.setIconImage(img.getImage());
+	}
+	
+	public void change(int i) {
+		if( i == 1 ) {
+			getContentPane().removeAll();
+			getContentPane().add(sp)
+		}
+	}
+
+	public FirstPanel getFp() {
+		return fp;
+	}
+
+	public void setFp(FirstPanel fp) {
+		this.fp = fp;
+	}
+
+	public SecondPanel getSp() {
+		return sp;
+	}
+
+	public void setSp(SecondPanel sp) {
+		this.sp = sp;
+	}
+	
+}

@@ -1,0 +1,79 @@
+package Frame;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import QA.xml.XmlSolve;
+
+public class SecondPanel extends JPanel implements ActionListener{
+	
+
+	private JButton b1,b2;
+	private PanelSet ps;
+	private JLabel j1;
+	private JTextField jt1;
+	private JTextArea jt2;
+	
+	public SecondPanel(PanelSet ps) {
+		this.ps = ps;
+		setLayout(null);
+		setPage();
+	}
+	
+	public void setPage() {
+		b1 = new JButton();
+		b2 = new JButton();
+		j1 = new JLabel();
+		jt1 = new JTextField();
+		jt2 = new JTextArea();
+		
+		b1.setSize(100, 40);
+		b1.setLocation(50, 50);
+		b1.setText("시작하기");
+		
+		j1.setText("두 번째 패널");
+		j1.setSize(100,60);
+		j1.setLocation(50, 100);
+		
+		
+		jt1.setBounds(j1.getX(), j1.getY()+j1.getHeight(), 200, 400);
+		jt1.setText("asdasd");
+		jt2.setBounds(jt1.getX()+jt1.getWidth(), j1.getY()+j1.getHeight(), 200, 400);
+		//jt2.setVisible(false);
+		
+		b2.setSize(100, 40);
+		b2.setLocation(jt1.getX(), jt1.getY()+jt1.getHeight());
+		b2.setText("결과 제출");
+		
+		add(b1);
+		add(b2);
+		add(j1);
+		add(jt1);
+		add(jt2);
+		
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+	}
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String msg = e.getActionCommand().trim();
+		
+		if(msg.equals("시작하기")) {
+			ps.change(1);
+		}else if(msg.equals("결과 제출")) {
+			XmlSolve xs = new XmlSolve();
+			jt2.setText(xs.solve(jt1.getText()));
+			jt2.setVisible(true);
+		}
+		
+	}
+
+}

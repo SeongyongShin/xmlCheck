@@ -1,0 +1,18 @@
+package Frame;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class FirstPanel extends JPanel{
+	
+	private JButton b1;
+	private PanelSet ps;
+	
+	public FirstPanel(PanelSet ps) {
+		
+		this.ps = ps;
+		
+	}
+	
+	
+}

@@ -1,0 +1,21 @@
+package QA.xml;
+
+import java.util.Stack;
+
+public class XmlSolve {
+	Stack<String> tag;
+	Stack<String> name;
+	Stack<String> field;
+	public String solve(String xml){
+		
+		if(xml.indexOf(0) != '<' && xml.indexOf(1) != '<') {
+			for(int i=2;;i++) {
+			if(xml.indexOf(i) == '<') {
+				xml.substring(i, xml.length()-1)
+			}
+		}
+		}
+		return xml;
+	}
+	
+}

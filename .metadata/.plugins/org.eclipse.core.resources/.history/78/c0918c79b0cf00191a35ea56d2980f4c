@@ -1,0 +1,11 @@
+package QA.xml;
+
+public class XmlSolve {
+	
+	
+	public String solve(String xml){
+		
+		return xml;
+	}
+	
+}

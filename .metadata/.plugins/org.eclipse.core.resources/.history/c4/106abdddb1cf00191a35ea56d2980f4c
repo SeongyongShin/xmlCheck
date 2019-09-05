@@ -1,0 +1,17 @@
+package QA.xml;
+
+import java.util.Stack;
+
+public class XmlSolve {
+	Stack<String> tag;
+	Stack<String> name;
+	Stack<String> field;
+	public String solve(String xml){
+		
+		for(int i=0;;i++) {
+			
+		}
+		return xml;
+	}
+	
+}

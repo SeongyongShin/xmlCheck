@@ -1,0 +1,21 @@
+package QA.xml;
+
+import Frame.FirstPanel;
+import Frame.PanelSet;
+
+
+public class main {
+	private PanelSet ps;
+	private Secondpanel sp;
+	private FirstPanel fp;
+	
+	public static void main(String[] args) {
+		ps = new PanelSet();
+		ps.setTitle("QAÇØº¾½Ã´Ù.");
+		ps.setSize(500,700);
+		ps.setVisible(true);
+		ps.setIconImage();
+		
+	}
+
+}

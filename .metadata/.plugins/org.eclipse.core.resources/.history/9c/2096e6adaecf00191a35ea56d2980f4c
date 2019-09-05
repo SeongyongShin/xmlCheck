@@ -1,0 +1,75 @@
+package Frame;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import QA.xml.XmlSolve;
+
+public class SecondPanel extends JPanel implements ActionListener{
+	
+
+	private JButton b1,b2;
+	private PanelSet ps;
+	private JLabel j1;
+	private JTextField jt1;
+	
+	public SecondPanel(PanelSet ps) {
+		this.ps = ps;
+		setLayout(null);
+		setPage();
+	}
+	
+	public void setPage() {
+		b1 = new JButton();
+		b2 = new JButton();
+		j1 = new JLabel();
+		jt1 = new JTextField();
+		
+		b1.setSize(100, 40);
+		b1.setLocation(50, 50);
+		b1.setText("시작하기");
+		
+		j1.setText("두 번째 패널");
+		j1.setSize(100,60);
+		j1.setLocation(50, 100);
+		
+		
+		jt1.setBounds(j1.getX(), j1.getY()+j1.getHeight(), 200, 400);
+		
+		b1.setSize(100, 40);
+		b1.setLocation(jt1.getX(), jt1.getY()+jt1.getHeight());
+		b1.setText("결과 제출");
+		
+		add(b1);
+		add(j1);
+		add(jt1);
+		b1.addActionListener(this);
+	}
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String msg = e.getActionCommand().trim();
+		switch (msg) {
+		case "시":
+			ps.change(1);
+			break;
+		case "결":
+			XmlSolve xs = new XmlSolve();
+			xs.solve(jt1.getText());
+			break;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + e);
+		}
+		if(msg.equals("시작하기")) {
+			
+		}
+		
+	}
+
+}

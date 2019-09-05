@@ -1,0 +1,8 @@
+package Frame;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class StartPanel extends JPanel{
+	private JButton b1;
+}
