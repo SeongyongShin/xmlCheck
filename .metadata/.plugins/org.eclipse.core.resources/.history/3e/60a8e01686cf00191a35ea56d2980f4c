@@ -1,0 +1,32 @@
+package Frame;
+
+import java.awt.Container;
+import java.awt.Graphics;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class MainFrame extends JFrame{
+	ImageIcon icon = new ImageIcon(".\\logo.png");
+	JScrollPane jp;
+	public MainFrame() {
+		JPanel bg = new JPanel() {
+			public void paint(Graphics g) {
+				g.drawImage(icon.getImage(),0,0,null);
+				setOpaque(false);
+				super.paintComponent(g);
+			}
+		};
+		setTitle("QAÇØº¾½Ã´Ù.");
+		setSize(500,700);
+		setVisible(true);
+		jp = new JScrollPane(bg);
+		setContentPane(jp);
+	}
+	public Container getContent() {
+		return this.getContentPane();
+	}
+
+}

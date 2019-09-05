@@ -1,0 +1,31 @@
+package Frame;
+
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+public class MainFrame extends JFrame{
+	
+	public MainFrame() {
+		setTitle("QAÇØº¾½Ã´Ù.");
+		setSize(500,700);
+		setVisible(true);
+	}
+	public Container getContent() {
+		return this.getContentPane();
+	}
+	public void setImg() {
+		//Toolkit toolkit = this.getToolkit();
+		//Image img = toolkit.createImage("./logo.png");
+		ImageIcon img = new ImageIcon("\\resource\\logo.png");
+		this.setIconImage(img.getImage());
+		
+	}
+
+}
