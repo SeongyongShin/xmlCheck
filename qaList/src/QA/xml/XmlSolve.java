@@ -30,7 +30,12 @@ public class XmlSolve {
 		Element root = document.getDocumentElement();
 		NodeList children = root.getChildNodes();
 		
-		getNode(children.item(0));
+		for(int i=0;i<children.getLength();i++) {
+			System.out.println("-------------");
+			getNode(children.item(i));
+			System.out.println("-------------");
+		}
+		
 //		for(int i = 0; i < children.getLength(); i++){
 //			Node node = children.item(i);
 //			System.out.println(node.getNodeType());
@@ -53,16 +58,15 @@ public class XmlSolve {
 
 	                     if(ch.getNodeType() == Node.ELEMENT_NODE) {
 
-	                                System.out.println("<" + ch.getNodeName() + ">");
+	                                System.out.print("<" + ch.getNodeName() + ">");
 
 	                                getNode(ch);
 
 	                     }
 
 	                     else if(ch.getNodeType() == Node.TEXT_NODE &&
-
 	                                           ch.getNodeValue().trim().length() != 0) {
-
+	                    	 		System.out.println(ch.getNodeName());
 	                                System.out.println(ch.getNodeValue());
 
 	                     }
