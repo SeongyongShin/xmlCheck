@@ -21,54 +21,50 @@ public class XmlSolve {
 	Stack<String> field;
 	
 	public String solve(String xml) throws ParserConfigurationException, SAXException, IOException {
-		xml = xml.substring(xml.indexOf('<'));
-		
-		InputSource is = new InputSource(new StringReader(xml));
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder documentBuilder = factory.newDocumentBuilder();
-		Document document = documentBuilder.parse(is);
-		Element root = document.getDocumentElement();
-		NodeList children = root.getChildNodes();
-		
-		for(int i=0;i<children.getLength();i++) {
-			System.out.println("-------------");
-			getNode(children.item(i));
-			System.out.println("-------------");
+		String msg = "정상적인 xml 이 아닙니다.";
+		InputSource is;
+		DocumentBuilderFactory factory;
+		DocumentBuilder documentBuilder;
+		Document document;
+		Element root;
+		NodeList children = null;
+		try {
+			xml = xml.substring(xml.indexOf('<'));
+			is = new InputSource(new StringReader(xml));
+			factory = DocumentBuilderFactory.newInstance();
+			documentBuilder = factory.newDocumentBuilder();
+			document = documentBuilder.parse(is);
+			root = document.getDocumentElement();
+			children = root.getChildNodes();
+			for(int i=0;i<children.getLength();i++) {
+				getNode(children.item(i));
+				System.out.println("-------------");
+			}
+			msg = "정상 xml 입니다.";
+			System.out.println("정상 종료");
+		}catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("정상적인 xml 이 아닙니다.");
 		}
-		
-//		for(int i = 0; i < children.getLength(); i++){
-//			Node node = children.item(i);
-//			System.out.println(node.getNodeType());
-//			if(node.getNodeType() == Node.ELEMENT_NODE){ // 해당 노드의 종류 판정(Element일 때)
-//				Element ele = (Element)node;
-//				String nodeName = ele.getNodeName();
-//				System.out.println("노드 이름: <" + nodeName +">");
-//					System.out.println("node attribute: " + ele.getAttribute("name"));
-//					System.out.println("asd"+ele.getChildNodes());
-//			}
-//		}
-		System.out.println("종료");
-		return xml;
+		return msg;
 	}
 	 
-
+	
 	public static void getNode(Node n) {
 
 	           for(Node ch=n.getFirstChild(); ch!=null; ch = ch.getNextSibling()) {
 
 	                     if(ch.getNodeType() == Node.ELEMENT_NODE) {
-
-	                                System.out.print("<" + ch.getNodeName() + ">");
-
+	                    	 //System.out.print( "<" +ch.getNodeName() + ">");
+	                    	 System.out.print( "<" +n.getNodeName() + ">");
 	                                getNode(ch);
-
 	                     }
-
 	                     else if(ch.getNodeType() == Node.TEXT_NODE &&
 	                                           ch.getNodeValue().trim().length() != 0) {
-	                    	 		System.out.println(ch.getNodeName());
+	                    	 
+	                    	 System.out.print( "<" +n.getNodeName() + ">");
 	                                System.out.println(ch.getNodeValue());
-
+	                                
 	                     }
 
 	           }

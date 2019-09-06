@@ -37,15 +37,14 @@ public class SecondPanel extends JPanel implements ActionListener{
 		
 		b1.setSize(100, 40);
 		b1.setLocation(50, 50);
-		b1.setText("시작하기");
+		b1.setText("이전 화면으로");
 		
-		j1.setText("<XML 입력 필드>");
+		j1.setText("<XML 입력 필드> 그냥 다 붙여넣으세요.");
 		j1.setSize(100,60);
 		j1.setLocation(50, 100);
 		
 		
 		jt1.setBounds(j1.getX(), j1.getY()+j1.getHeight(), 200, 400);
-		jt1.setText("asdasd");
 		jt2.setBounds(jt1.getX()+jt1.getWidth() + 10, j1.getY()+j1.getHeight(), 200, 400);
 		jt2.setVisible(false);
 		
@@ -68,8 +67,9 @@ public class SecondPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		String msg = e.getActionCommand().trim();
 		
-		if(msg.equals("시작하기")) {
+		if(msg.equals("이전 화면으로")) {
 			ps.change(1);
+			ps.setSize(400,300);
 		}else if(msg.equals("결과 제출")) {
 			XmlSolve xs = new XmlSolve();
 			try {

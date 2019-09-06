@@ -24,7 +24,7 @@ public class main {
 		ps.setSp(sp);
 		ps.add(ps.getFp());
 		ps.setTitle("QAÇØº¾½Ã´Ù.");
-		ps.setSize(600,700);
+		ps.setSize(400,200);
 		ps.setVisible(true);
 		ps.setIconImage();
 	}

@@ -19,11 +19,11 @@ public class FirstPanel extends JPanel implements ActionListener{
 		setLayout(null);
 		b1 = new JButton();
 		j1 = new JLabel();
-		b1.setSize(100, 40);
+		b1.setSize(200, 40);
 		b1.setLocation(50, 50);
-		b1.setText("시작하기");
-		j1.setText("첫 번째 패널");
-		j1.setSize(100,60);
+		b1.setText("XML 검사 시작하기");
+		j1.setText("Version(1.0.0) release");
+		j1.setSize(200,60);
 		j1.setLocation(50, 100);
 		add(b1);
 		add(j1);
@@ -34,8 +34,9 @@ public class FirstPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String msg = e.getActionCommand().trim();
-		if(msg.equals("시작하기")) {
+		if(msg.equals("XML 검사 시작하기")) {
 			ps.change(2);
+			ps.setSize(600,700);
 		}
 		
 	}
