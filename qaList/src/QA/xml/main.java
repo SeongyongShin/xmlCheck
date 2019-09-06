@@ -10,7 +10,7 @@ public class main {
 	
 	public static void main(String[] args) {
 		firstSet();
-		
+		System.out.println(main.class.getClass());
 	}
 
 	private static void firstSet() {
