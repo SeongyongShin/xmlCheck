@@ -1,9 +1,0 @@
-package Frame;
-
-import javax.swing.JPanel;
-
-public class SeconfPanel extends JPanel {
-	
-	
-
-}

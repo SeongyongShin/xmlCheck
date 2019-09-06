@@ -1,0 +1,198 @@
+package QA.xml;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.Stack;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+public class XmlSolve {
+	Stack<String> tag;
+	Stack<String> name;
+	Stack<String> field;
+	
+	public String solve(String xml) throws ParserConfigurationException, SAXException, IOException {
+		xml = xml.substring(xml.indexOf('<'));
+		
+		InputSource is = new InputSource(new StringReader(xml));
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+		Document document = documentBuilder.parse(is);
+		Element root = document.getDocumentElement();
+		NodeList children = root.getChildNodes();
+		
+		for(int i = 0; i < children.getLength(); i++){
+			Node node = children.item(i);
+			System.out.println(node.getNodeType());
+			if(node.getNodeType() == Node.ELEMENT_NODE){ // 해당 노드의 종류 판정(Element일 때)
+				Element ele = (Element)node;
+				String nodeName = ele.getNodeName();
+				System.out.println("노드 이름: <" + nodeName +">");
+					System.out.println("node attribute: " + ele.getAttribute("name"));
+					System.out.println("asd"+ele.getChildNodes());
+			}
+		}
+		System.out.println("종료");
+		return xml;
+	}
+	
+}
+[OmniDoc XML]  - <?xml version="1.0" encoding="UTF-8"?>
+<database version='3.0.0.0'>
+<doc_info name='doc_info'>
+ <doc_cnfirm_no><![CDATA[6361-0324-1205-0238]]></doc_cnfirm_no>
+ <num><![CDATA[000842]]></num>
+ <make_date><![CDATA[20190905104225]]></make_date>
+</doc_info>
+
+<basic_info name='basic_info'>
+<datatable name=''>
+<rexrow>
+ <VHRNO><![CDATA[50다3598]]></VHRNO>
+ <PROCESS_IMPRTY_RESN_CODE><![CDATA[00]]></PROCESS_IMPRTY_RESN_CODE>
+ <PROCESS_IMPRTY_RESN_DTLS><![CDATA[정상]]></PROCESS_IMPRTY_RESN_DTLS>
+ <LEDGER_GROUP_NO><![CDATA[1]]></LEDGER_GROUP_NO>
+ <LEDGER_INDVDLZ_NO><![CDATA[1]]></LEDGER_INDVDLZ_NO>
+ <VHMNO><![CDATA[YV1FW84BBF1263744-01]]></VHMNO>
+ <VIN><![CDATA[YV1FW84BBF1263744]]></VIN>
+ <VHCTY_ASORT_CODE><![CDATA[1]]></VHCTY_ASORT_CODE>
+ <VHCTY_ASORT_NM><![CDATA[승용 중형]]></VHCTY_ASORT_NM>
+ <CNM><![CDATA[볼보 V60D2]]></CNM>
+ <COLOR_CODE><![CDATA[07]]></COLOR_CODE>
+ <COLOR_NM><![CDATA[파랑(남색,곤색)]]></COLOR_NM>
+ <NMPL_STNDRD_CODE><![CDATA[2]]></NMPL_STNDRD_CODE>
+ <NMPL_STNDRD_NM><![CDATA[긴번호판]]></NMPL_STNDRD_NM>
+ <PRPOS_SE_CODE><![CDATA[2]]></PRPOS_SE_CODE>
+ <PRPOS_SE_NM><![CDATA[자가용]]></PRPOS_SE_NM>
+ <MTRS_FOM_NM><![CDATA[D4162T]]></MTRS_FOM_NM>
+ <FOM_NM><![CDATA[FW84]]></FOM_NM>
+ <ACQS_AMOUNT><![CDATA[37,636,363]]></ACQS_AMOUNT>
+ <REGIST_DETAIL_CODE><![CDATA[100]]></REGIST_DETAIL_CODE>
+ <REGIST_DETAIL_NM><![CDATA[일반소유용]]></REGIST_DETAIL_NM>
+ <FRST_REGIST_DE><![CDATA[2015-04-22]]></FRST_REGIST_DE>
+ <CAAG_ENDDE><![CDATA[]]></CAAG_ENDDE>
+ <PRYE><![CDATA[2015]]></PRYE>
+ <SPMNNO><![CDATA[009-2-00034-0010-1214]]></SPMNNO>
+ <YBL_MD><![CDATA[2015-02-24]]></YBL_MD>
+ <INSPT_VALID_PD_DATE><![CDATA[2019-04-22 ~ 2021-04-21             주행거리 : 33184]]></INSPT_VALID_PD_DATE>
+ <CHCK_VALID_PD_DATE><![CDATA[]]></CHCK_VALID_PD_DATE>
+ <REGIST_REQST_SE_NM><![CDATA[수입차]]></REGIST_REQST_SE_NM>
+ <FRST_REGIST_RQRCNO><![CDATA[]]></FRST_REGIST_RQRCNO>
+ <NMPL_CSDY_REMNR_DE><![CDATA[]]></NMPL_CSDY_REMNR_DE>
+ <NMPL_CSDY_AT><![CDATA[N]]></NMPL_CSDY_AT>
+ <BSS_USE_PD><![CDATA[]]></BSS_USE_PD>
+ <OCTHT_ERSR_PRVNTC_NTICE_DE><![CDATA[]]></OCTHT_ERSR_PRVNTC_NTICE_DE>
+ <ERSR_REGIST_DE><![CDATA[]]></ERSR_REGIST_DE>
+ <ERSR_REGIST_SE_CODE><![CDATA[]]></ERSR_REGIST_SE_CODE>
+ <ERSR_REGIST_SE_NM><![CDATA[]]></ERSR_REGIST_SE_NM>
+ <MRTGCNT><![CDATA[0]]></MRTGCNT>
+ <VHCLECNT><![CDATA[0]]></VHCLECNT>
+ <STMDCNT><![CDATA[]]></STMDCNT>
+ <ADRES1><![CDATA[경기도 성남시 분당구 수내로 **-******]]></ADRES1>
+ <ADRES_NM1><![CDATA[****]]></ADRES_NM1>
+ <ADRES><![CDATA[경기도 성남시 분당구 수내로 **-**]]></ADRES>
+ <ADRES_NM><![CDATA[****]]></ADRES_NM>
+ <INDVDL_BSNM_AT><![CDATA[]]></INDVDL_BSNM_AT>
+ <TELNO><![CDATA[]]></TELNO>
+ <MBER_NM><![CDATA[박해철]]></MBER_NM>
+ <MBER_SE_CODE><![CDATA[11]]></MBER_SE_CODE>
+ <MBER_SE_NO><![CDATA[750510-1******]]></MBER_SE_NO>
+ <MBER_NM1><![CDATA[]]></MBER_NM1>
+ <IHIDNUM1><![CDATA[]]></IHIDNUM1>
+ <TAXXMPT_TRGTER_SE_CODE><![CDATA[0]]></TAXXMPT_TRGTER_SE_CODE>
+ <TAXXMPT_TRGTER_SE_CODE_NM><![CDATA[미적용]]></TAXXMPT_TRGTER_SE_CODE_NM>
+ <CNT_MATTER><![CDATA[0]]></CNT_MATTER>
+ <EMD_NM><![CDATA[수내2동]]></EMD_NM>
+ <PRVNTCCNT><![CDATA[0]]></PRVNTCCNT>
+ <XPORT_FLFL_AT_STTEMNT_DE><![CDATA[]]></XPORT_FLFL_AT_STTEMNT_DE>
+ <PARTN_RQRCNO><![CDATA[002383]]></PARTN_RQRCNO>
+ <FRST_TRNSFR_DE><![CDATA[]]></FRST_TRNSFR_DE>
+</rexrow>
+</datatable>
+</basic_info>
+
+<detail_info name='detail_info'>
+<datatable name=''>
+<rexrow>
+ <MAINCHK><![CDATA[1]]></MAINCHK>
+ <CHANGE_JOB_SE_CODE><![CDATA[02]]></CHANGE_JOB_SE_CODE>
+ <MAINNO><![CDATA[1-1]]></MAINNO>
+ <SUBNO><![CDATA[]]></SUBNO>
+ <DTLS><![CDATA[성명(상호) : 박**  750510-1******
+
+주소 : 서울특별시 동작구 상도로 **-**, ****]]></DTLS>
+ <HSHLDR_MBER_NM><![CDATA[]]></HSHLDR_MBER_NM>
+ <HSHLDR_MBER_NUM><![CDATA[750510-1******]]></HSHLDR_MBER_NUM>
+ <RQRCNO><![CDATA[042229]]></RQRCNO>
+ <VHMNO><![CDATA[YV1FW84BBF1263744-01]]></VHMNO>
+ <LEDGER_GROUP_NO><![CDATA[1]]></LEDGER_GROUP_NO>
+ <LEDGER_INDVDLZ_NO><![CDATA[1]]></LEDGER_INDVDLZ_NO>
+ <GUBUN_NM><![CDATA[신규등록(수입차)]]></GUBUN_NM>
+ <CHANGE_DE><![CDATA[2015-04-22]]></CHANGE_DE>
+ <DETAIL_SN><![CDATA[1]]></DETAIL_SN>
+ <FLAG><![CDATA[]]></FLAG>
+</rexrow>
+<rexrow>
+ <MAINCHK><![CDATA[1]]></MAINCHK>
+ <CHANGE_JOB_SE_CODE><![CDATA[21]]></CHANGE_JOB_SE_CODE>
+ <MAINNO><![CDATA[1-2]]></MAINNO>
+ <SUBNO><![CDATA[]]></SUBNO>
+ <DTLS><![CDATA[주소 : 서울특별시 동작구 상도로 **-**, ****  ]]></DTLS>
+ <HSHLDR_MBER_NM><![CDATA[]]></HSHLDR_MBER_NM>
+ <HSHLDR_MBER_NUM><![CDATA[]]></HSHLDR_MBER_NUM>
+ <RQRCNO><![CDATA[020300]]></RQRCNO>
+ <VHMNO><![CDATA[YV1FW84BBF1263744-01]]></VHMNO>
+ <LEDGER_GROUP_NO><![CDATA[1]]></LEDGER_GROUP_NO>
+ <LEDGER_INDVDLZ_NO><![CDATA[1]]></LEDGER_INDVDLZ_NO>
+ <GUBUN_NM><![CDATA[변경등록]]></GUBUN_NM>
+ <CHANGE_DE><![CDATA[2015-04-30]]></CHANGE_DE>
+ <DETAIL_SN><![CDATA[2]]></DETAIL_SN>
+ <FLAG><![CDATA[]]></FLAG>
+</rexrow>
+<rexrow>
+ <MAINCHK><![CDATA[1]]></MAINCHK>
+ <CHANGE_JOB_SE_CODE><![CDATA[21]]></CHANGE_JOB_SE_CODE>
+ <MAINNO><![CDATA[1-3]]></MAINNO>
+ <SUBNO><![CDATA[]]></SUBNO>
+ <DTLS><![CDATA[주소 : 경기도 성남시 분당구 수내로 **-**, ****  ]]></DTLS>
+ <HSHLDR_MBER_NM><![CDATA[]]></HSHLDR_MBER_NM>
+ <HSHLDR_MBER_NUM><![CDATA[]]></HSHLDR_MBER_NUM>
+ <RQRCNO><![CDATA[035297]]></RQRCNO>
+ <VHMNO><![CDATA[YV1FW84BBF1263744-01]]></VHMNO>
+ <LEDGER_GROUP_NO><![CDATA[1]]></LEDGER_GROUP_NO>
+ <LEDGER_INDVDLZ_NO><![CDATA[1]]></LEDGER_INDVDLZ_NO>
+ <GUBUN_NM><![CDATA[변경등록]]></GUBUN_NM>
+ <CHANGE_DE><![CDATA[2017-04-17]]></CHANGE_DE>
+ <DETAIL_SN><![CDATA[3]]></DETAIL_SN>
+ <FLAG><![CDATA[]]></FLAG>
+</rexrow>
+<rexrow>
+ <MAINCHK><![CDATA[1]]></MAINCHK>
+ <CHANGE_JOB_SE_CODE><![CDATA[31]]></CHANGE_JOB_SE_CODE>
+ <MAINNO><![CDATA[1-5]]></MAINNO>
+ <SUBNO><![CDATA[]]></SUBNO>
+ <DTLS><![CDATA[성남출장_판교메젠모터스 검사구분 : 정기검사 주행거리 : 33184 ]]></DTLS>
+ <HSHLDR_MBER_NM><![CDATA[]]></HSHLDR_MBER_NM>
+ <HSHLDR_MBER_NUM><![CDATA[]]></HSHLDR_MBER_NUM>
+ <RQRCNO><![CDATA[0025-1]]></RQRCNO>
+ <VHMNO><![CDATA[YV1FW84BBF1263744-01]]></VHMNO>
+ <LEDGER_GROUP_NO><![CDATA[1]]></LEDGER_GROUP_NO>
+ <LEDGER_INDVDLZ_NO><![CDATA[1]]></LEDGER_INDVDLZ_NO>
+ <GUBUN_NM><![CDATA[자동차검사]]></GUBUN_NM>
+ <CHANGE_DE><![CDATA[2019-04-30]]></CHANGE_DE>
+ <DETAIL_SN><![CDATA[6]]></DETAIL_SN>
+ <FLAG><![CDATA[]]></FLAG>
+</rexrow>
+</datatable>
+</detail_info>
+
+</database>
